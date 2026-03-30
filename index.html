@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Saima Rashid, MD | Personalized Internal Medicine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d0d0f;
+      --bg-soft: #141418;
+      --panel: rgba(255,255,255,0.04);
+      --panel-strong: rgba(255,255,255,0.07);
+      --text: #f7f3eb;
+      --muted: #d0c7b6;
+      --gold: #d4af37;
+      --gold-soft: #f1e0a3;
+      --line: rgba(212,175,55,0.25);
+      --shadow: 0 20px 60px rgba(0,0,0,0.45);
+      --radius: 24px;
+      --maxw: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(212,175,55,0.12), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(212,175,55,0.08), transparent 20%),
+        var(--bg);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(92%, var(--maxw));
+      margin: 0 auto;
+    }
+
+    .gold { color: var(--gold); }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(13,13,15,0.82);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 78px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-top {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-sub {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--gold-soft); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f1e0a3, #d4af37 45%, #a47c1d);
+      color: #181818;
+      box-shadow: 0 10px 30px rgba(212,175,55,0.25);
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .hero {
+      padding: 90px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(212,175,55,0.08);
+      border: 1px solid var(--line);
+      color: var(--gold-soft);
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.05;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.7rem);
+      margin-bottom: 18px;
+    }
+
+    .hero-copy p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 680px;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .quick-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .fact-pill {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      border-radius: 999px;
+      padding: 10px 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-card,
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.028));
+      border: 1px solid rgba(212,175,55,0.16);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      overflow: hidden;
+    }
+
+    .hero-image {
+      min-height: 520px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.14), rgba(0,0,0,0.55)),
+        url('https://images.unsplash.com/photo-1516549655669-df8238a1ea30?auto=format&fit=crop&w=1200&q=80') center/cover;
+      position: relative;
+    }
+
+    .hero-badge {
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      background: rgba(13,13,15,0.82);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px 20px;
+      max-width: 290px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-badge strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--gold-soft);
+      font-size: 1rem;
+    }
+
+    section {
+      padding: 76px 0;
+    }
+
+    .section-header {
+      margin-bottom: 28px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0;
+    }
+
+    .about-grid,
+    .contact-grid,
+    .services-grid,
+    .education-grid,
+    .details-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .details-grid,
+    .education-grid,
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .card {
+      padding: 28px;
+    }
+
+    .card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    ul.clean {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    ul.clean li {
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding-bottom: 12px;
+    }
+
+    ul.clean li:last-child { border-bottom: 0; padding-bottom: 0; }
+
+    .service-card h3,
+    .edu-card h3,
+    .detail-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.55rem;
+    }
+
+    .small-label {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.74rem;
+      color: var(--gold-soft);
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .price {
+      color: var(--gold-soft);
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .contact-card .line {
+      margin: 10px 0;
+      color: var(--muted);
+    }
+
+    .notice {
+      font-size: 0.9rem;
+      color: var(--muted);
+      border-left: 3px solid var(--gold);
+      padding-left: 14px;
+      margin-top: 18px;
+    }
+
+    footer {
+      padding: 30px 0 50px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .details-grid,
+      .education-grid,
+      .services-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-image {
+        min-height: 420px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-top">Dr. Saima Rashid, MD</div>
+        <div class="brand-sub">Internal Medicine | Personalized Care</div>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary" href="#contact">Request an Appointment</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Manhasset, New York</div>
+          <h1>Personalized Internal Medicine with a <span class="gold">Luxury Experience</span></h1>
+          <p>
+            Welcome to the practice of Dr. Saima Rashid, a double board-certified physician in Internal Medicine and Geriatric Medicine. This elegant starter website is designed to introduce patients to a more personalized, preventive, and relationship-centered approach to care.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Book a Consultation</a>
+            <a class="btn btn-secondary" href="#about">Learn More</a>
+          </div>
+          <div class="quick-facts">
+            <div class="fact-pill">St. Francis Hospital Affiliation</div>
+            <div class="fact-pill">Monday-Friday | 8:00 AM-5:00 PM</div>
+            <div class="fact-pill">Urdu & Hindi Spoken</div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-image">
+            <div class="hero-badge">
+              <strong>Thoughtful, Preventive, Personalized</strong>
+              Patients seeking a more attentive primary care experience can use this site to learn about Dr. Rashid’s background, philosophy, and office information.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2>About Dr. Saima Rashid</h2>
+          <p>
+            Dr. Rashid’s public MDVIP profile describes her as a dedicated internist who values compassion, integrity, and personalized medicine, with a focus on giving patients more time, deeper support, and stronger doctor-patient relationships.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card">
+            <h3>Her Care Philosophy</h3>
+            <p>
+              Dr. Rashid believes medicine is most effective when patients feel heard, supported, and empowered. Her approach emphasizes preventive care, timely access, and meaningful relationships that help patients pursue long-term health goals with clarity and confidence.
+            </p>
+            <p>
+              This website version presents that same core message in a more polished and independent format, suitable for free hosting now and later migration to WordPress if desired.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>At a Glance</h3>
+            <ul class="clean">
+              <li><strong class="gold">Specialty:</strong> Internal Medicine</li>
+              <li><strong class="gold">Board Certifications:</strong> Internal Medicine; Geriatric Medicine</li>
+              <li><strong class="gold">Hospital Affiliation:</strong> St. Francis Hospital</li>
+              <li><strong class="gold">Faculty Appointment:</strong> Internal Medicine Residency Program, Mount Sinai South Nassau Hospital</li>
+              <li><strong class="gold">Licensure:</strong> New York</li>
+              <li><strong class="gold">Languages:</strong> Urdu and Hindi (spoken)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-header">
+          <h2>Education & Training</h2>
+          <p>
+            The milestones below are based on the education and training information listed on Dr. Rashid’s public physician profile.
+          </p>
+        </div>
+
+        <div class="education-grid">
+          <article class="card edu-card">
+            <span class="small-label">Fellowship</span>
+            <h3>SUNY Downstate Medical Center</h3>
+            <p>Brooklyn, New York</p>
+            <p>Geriatric Medicine, 2020-2021</p>
+          </article>
+
+          <article class="card edu-card">
+            <span class="small-label">Residency & Internship</span>
+            <h3>Jersey Shore University Medical Center</h3>
+            <p>Perth Amboy, New Jersey</p>
+            <p>Internal Medicine Residency, 2018-2020</p>
+            <p>Internship, 2017-2018</p>
+          </article>
+
+          <article class="card edu-card">
+            <span class="small-label">Medical School</span>
+            <h3>Foundation University Medical College</h3>
+            <p>Islamabad, Pakistan</p>
+            <p>Bachelor in Medicine and Bachelor in Surgery, 2010</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <h2>Professional Details</h2>
+          <p>
+            A refined summary of credentials, affiliations, and personal interests that help patients get to know Dr. Rashid beyond a standard directory listing.
+          </p>
+        </div>
+
+        <div class="details-grid">
+          <article class="card detail-card">
+            <span class="small-label">Certifications</span>
+            <h3>Board Certified</h3>
+            <p>American Board of Internal Medicine</p>
+            <p>American Board of Internal Medicine, Geriatric Medicine</p>
+          </article>
+
+          <article class="card detail-card">
+            <span class="small-label">Appointment</span>
+            <h3>Faculty Role</h3>
+            <p>Faculty Member, Internal Medicine Residency Program, Mount Sinai South Nassau Hospital, 2021-present</p>
+          </article>
+
+          <article class="card detail-card">
+            <span class="small-label">Interests</span>
+            <h3>Personal Interests</h3>
+            <p>Outdoor activities, cooking, decorating her home, and reading</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>Practice Highlights</h2>
+          <p>
+            These highlights reflect the benefits and patient experience emphasized on Dr. Rashid’s public profile, presented here in a premium one-page format.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="card service-card">
+            <span class="small-label">Access</span>
+            <h3>Same or Next-Day Visits</h3>
+            <p>Designed for patients who value timely appointments and more meaningful face-to-face care.</p>
+          </article>
+
+          <article class="card service-card">
+            <span class="small-label">Wellness</span>
+            <h3>Preventive Focus</h3>
+            <p>Comprehensive wellness planning, preventive attention, and a more proactive approach to long-term health.</p>
+          </article>
+
+          <article class="card service-card">
+            <span class="small-label">Relationship</span>
+            <h3>Dedicated Physician Access</h3>
+            <p>A more personal care model centered on continuity, trust, and a deeper doctor-patient relationship.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Office Information</h2>
+          <p>
+            This section gives visitors the essential contact details they need while keeping the presentation elegant and easy to scan.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card contact-card">
+            <h3>Primary Office</h3>
+            <div class="line"><strong class="gold">Address:</strong> 450 Plandome Road, Suite 2, Manhasset, NY 11030</div>
+            <div class="line"><strong class="gold">Phone:</strong> (516) 365-5050</div>
+            <div class="line"><strong class="gold">Hospital Affiliation:</strong> St. Francis Hospital</div>
+            <div class="line"><strong class="gold">Hours:</strong> Monday-Friday, 8:00 AM-5:00 PM</div>
+            <div class="hero-actions" style="margin-top:20px; margin-bottom:0;">
+              <a class="btn btn-primary" href="tel:+15163655050">Call Office</a>
+              <a class="btn btn-secondary" href="https://maps.google.com/?q=450+Plandome+Road+Suite+2+Manhasset+NY+11030" target="_blank" rel="noopener noreferrer">Get Directions</a>
+            </div>
+          </div>
+
+          <div class="card contact-card">
+            <h3>Future Add-Ons</h3>
+            <p>You can later add any of the following without changing your overall content:</p>
+            <ul class="clean">
+              <li>Online payment links for services or membership-related items</li>
+              <li>Appointment request form</li>
+              <li>Patient education articles and blog posts</li>
+              <li>Photo gallery, team section, or office tour</li>
+              <li>Migration into WordPress on Hostinger later</li>
+            </ul>
+            <p class="notice">
+              Replace the stock hero image with a professional photo of Dr. Rashid or the office for a more personal and branded result.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      This starter HTML website is an independently designed demo page. Review all wording, branding, and compliance requirements before publishing. Replace placeholder imagery with authorized practice photos for the best final result.
+    </div>
+  </footer>
+</body>
+</html>
