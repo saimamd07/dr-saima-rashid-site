@@ -355,6 +355,37 @@
         min-height: 420px;
       }
     }
+  <style>
+.review-btn {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.review-btn-dark {
+  background: #111;
+  color: #fff;
+}
+
+.review-btn-dark:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+.review-btn-gold {
+  background: #b08d57;
+  color: #fff;
+}
+
+.review-btn-gold:hover {
+  background: #d4af37;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(176,141,87,0.4);
+}
   </style>
 </head>
 <body>
@@ -691,20 +722,22 @@
     </div>
 
     <div style="margin-top: 38px; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
-      <a href="https://www.google.com/search?q=dr+saima+rashid&rlz=1C1GCEA_enUS1155US1158&oq=dr+saima+rashid&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIQCAEQLhivARjHARiABBiOBTIHCAIQABiABDIHCAMQABiABDIICAQQABgWGB4yBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQgyOTY1ajBqN6gCCLACAfEFrDahUBhFsMg&sourceid=chrome&ie=UTF-8"
-         target="_blank"
-         rel="noopener noreferrer"
-         style="background: #111; color: white; padding: 14px 24px; border-radius: 10px; text-decoration: none; font-weight: 600;">
-        Read More Reviews
-      </a>
 
-      <a href="https://search.google.com/local/writereview?placeid=ChIJI_0YDgCJwokRlAzPQCGMnTs&source=g.page.m._&laa=merchant-review-solicitation"
-         target="_blank"
-         rel="noopener noreferrer"
-         style="background: #b08d57; color: white; padding: 14px 24px; border-radius: 10px; text-decoration: none; font-weight: 600;">
-        Leave a Review
-      </a>
-    </div>
+  <a href="https://www.google.com/search?q=dr+saima+rashid&rlz=1C1GCEA_enUS1155US1158&oq=dr+saima+rashid&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIQCAEQLhivARjHARiABBiOBTIHCAIQABiABDIHCAMQABiABDIICAQQABgWGB4yBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQgyOTY1ajBqN6gCCLACAfEFrDahUBhFsMg&sourceid=chrome&ie=UTF-8"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="review-btn review-btn-dark">
+    Read More Reviews
+  </a>
+
+  <a href="https://search.google.com/local/writereview?placeid=ChIJI_0YDgCJwokRlAzPQCGMnTs&source=g.page.m._&laa=merchant-review-solicitation"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="review-btn review-btn-gold">
+    Leave a Review
+  </a>
+
+</div>
   </div>
   <div class="social-icons" style="text-align: center; margin-top: 40px;">
 
